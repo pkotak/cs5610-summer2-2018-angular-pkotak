@@ -11,20 +11,11 @@ export class CourseNavigatorComponent implements OnInit {
 
   constructor(private service: CourseNavigatorServiceClient,
               private activatedRoute: ActivatedRoute) { }
-
-  courses = [];
   courseId;
-  selectedCourseId;
   modules = [];
   lessons = [];
   topics = [];
   widgets = [];
-
-  selectCourse(courseId) {
-    this.selectedCourseId = courseId;
-    this.service.findAllModulesForCourse(courseId)
-      .then(modules => this.modules = modules);
-  }
 
   selectModule(moduleId) {
     this.service.findAllLessonsForModule(moduleId)
