@@ -2,15 +2,42 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import {FormsModule} from '@angular/forms';
+import {CourseNavigatorServiceClient} from './service/course-navigator.service.client';
+import { CourseNavigatorComponent } from './course-navigator/course-navigator.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { RegisterComponent } from './register/register.component';
+import {UserServiceClient} from './service/user.service.client';
+import {routing} from './app.routing';
+import { WhiteBoardComponent } from './white-board/white-board.component';
+import { CourseGridComponent } from './course-grid/course-grid.component';
+import { SectionListComponent } from './section-list/section-list.component';
+import {SectionServiceClient} from './service/section.service.client';
+import { EnrollmentComponent } from './enrollment/enrollment.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CourseNavigatorComponent,
+    LoginComponent,
+    ProfileComponent,
+    RegisterComponent,
+    WhiteBoardComponent,
+    CourseGridComponent,
+    SectionListComponent,
+    EnrollmentComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    routing
   ],
-  providers: [],
+  providers: [
+    CourseNavigatorServiceClient,
+    UserServiceClient,
+    SectionServiceClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
