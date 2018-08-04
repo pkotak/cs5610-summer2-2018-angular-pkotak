@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <div class="row bg-danger">
+    <div class="col-sm-9">
+      <h3 class="ml-lg-3">White Board</h3>
+    </div>
+    <div class="col-sm-3" *ngIf="user.firstName !== undefined">
+      <a class="float-right mt-2" routerLink="/profile">Profile</a>
+    </div>
+    <div class="col-sm-3" *ngIf="user.firstName === undefined">
+      <a class="float-right mt-2" routerLink="/login">Login</a>
+      <a class="float-right mr-4 mt-2" routerLink="/register">Register</a>
+    </div>
+  </div>
+
+  <app-course-grid></app-course-grid>
+</div>
