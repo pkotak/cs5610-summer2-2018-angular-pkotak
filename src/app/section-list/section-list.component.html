@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="row bg-danger mb-4">
+    <div class="col-sm-9">
+      <h3 class="ml-lg-3">White Board</h3>
+    </div>
+    <div class="col-sm-3 row">
+      <a routerLink="/home">Home</a>
+      <button (click)="logout()" class="btn btn-warning ml-4">Logout</button>
+    </div>
+  </div>
+<h2>Sections</h2>
+
+<div class="row">
+  <div class="col-sm-3">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <h3>Courses</h3>
+      </li>
+      <li (click)="selectCourse(course)"
+          *ngFor="let course of courses"
+          [ngClass]="{'active': course.id == selectedCourse.id}"
+          class="list-group-item">
+        {{course.title}}
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-8">
+    <ul class="list-group">
+      <li class="list-group-item active">
+        Sections
+        <button (click)="addSection(section)"
+                class="btn btn-success btn-sm float-right">Add</button>
+      </li>
+      <li class="list-group-item">
+        <input [(ngModel)]="section.name"
+               class="form-control">
+      </li>
+      <li *ngFor="let section of sections"
+          class="list-group-item">
+        <h3>{{section.name}}</h3>
+        <h5>Seats: {{section.seats}}</h5>
+        <button class="btn btn-success float-right"
+                *ngIf="section.seats > 0"
+                (click)="enroll(section)">
+          Enroll
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
