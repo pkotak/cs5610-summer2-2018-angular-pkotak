@@ -46,7 +46,7 @@ export class SectionListComponent implements OnInit {
     this.sectionService
       .enrollStudentInSection(section._id, this.toEnroll)
       .then(() => {
-        alert('successfully enrolled:');
+        alert('successfully enrolled');
         return this.sectionService
           .findSectionsForCourse(this.selectedCourse.id);
       })

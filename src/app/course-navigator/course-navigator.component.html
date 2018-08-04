@@ -4,17 +4,6 @@
   <div class="row">
     <div class="col-2">
       <ul class="list-group">
-        <li class="list-group-item">Courses</li>
-        <li *ngFor="let course of courses"
-            class="list-group-item"
-            [ngClass]="{'active': course.id === selectedCourseId}"
-            (click)="selectCourse(course.id)">
-          {{course.title}}
-        </li>
-      </ul>
-    </div>
-    <div class="col-2">
-      <ul class="list-group">
         <li class="list-group-item active">Modules</li>
         <li *ngFor="let module of modules"
             class="list-group-item"
