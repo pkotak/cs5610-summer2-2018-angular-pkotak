@@ -1,46 +1,56 @@
 <div class="container-fluid">
-  <h3>Course Navigator ({{courses.length}})</h3>
-
-  <div class="row">
-    <div class="col-2">
+  <div class="row bg-danger">
+    <div class="col-3">
+      <h3 class="ml-lg-3">{{course.name}}</h3>
+    </div>
+    <div class="col-6">
+      <ul class="nav nav-tabs">
+        <li class="nav-item"
+            *ngFor="let lesson of lessons"
+            routerLink="/course/{{course.courseId}}/module/{{selectedModule}}/lesson/{{lesson.id}}">
+          <a class="nav-link"
+             [ngClass]="{'active': lesson.id === selectedLesson}">
+            {{lesson.title}}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-3" *ngIf="user.firstName !== undefined">
+      <a class="float-right mt-2" routerLink="/profile">Profile</a>
+    </div>
+    <div class="col-3" *ngIf="user.firstName === undefined">
+      <a class="float-right mt-2" routerLink="/login">Login</a>
+      <a class="float-right mr-4 mt-2" routerLink="/register">Register</a>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-3">
       <ul class="list-group">
-        <li class="list-group-item active">Modules</li>
+        <li class="list-group-item">
+          <h3>Modules</h3>
+        </li>
         <li *ngFor="let module of modules"
             class="list-group-item"
-            (click)="selectModule(module.id)">
+            routerLink="/course/{{course.courseId}}/module/{{module.id}}"
+            [ngClass]="{'active': module.id === selectedModule}">
           {{module.title}}
         </li>
       </ul>
     </div>
-    <div class="col-2">
-      <ul class="list-group">
-        <li class="list-group-item active">Lessons</li>
-        <li *ngFor="let lesson of lessons"
-            class="list-group-item"
-            (click)="selectLesson(lesson.id)">
-          {{lesson.title}}
+    <div class="col-8">
+      <ul class="nav nav-pills">
+        <li class="nav-item"
+            *ngFor="let topic of topics"
+            [ngClass]="{'active': topic.id === selectedTopic}"
+            routerLink="/course/{{course.courseId}}/module/{{selectedModule}}/lesson/{{selectedLesson}}/topic/{{topic.id}}">
+            <a class="nav-link">{{topic.title}}</a>
         </li>
       </ul>
-    </div>
-    <div class="col-2">
-      <ul class="list-group">
-        <li class="list-group-item active">Topics</li>
-        <li *ngFor="let topic of topics"
-            class="list-group-item"
-            (click)="selectTopic(topic.id)">
-          {{topic.title}}
-        </li>
-      </ul>
-    </div>
-    <div class="col-2">
-      <ul class="list-group">
-        <li class="list-group-item active">Widgets</li>
-        <li *ngFor="let widget of widgets"
-            class="list-group-item">
-          {{widget.name}}
-        </li>
-      </ul>
+      <div class="container-fluid">
+          <div *ngFor="let widget of widgets">
+            <app-widget-list [widget]="widget"></app-widget-list>
+          </div>
+      </div>
     </div>
   </div>
-
 </div>

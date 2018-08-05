@@ -15,6 +15,8 @@ import { CourseGridComponent } from './course-grid/course-grid.component';
 import { SectionListComponent } from './section-list/section-list.component';
 import {SectionServiceClient} from './service/section.service.client';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
+import { WidgetListComponent } from './widget-list/widget-list.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { EnrollmentComponent } from './enrollment/enrollment.component';
     WhiteBoardComponent,
     CourseGridComponent,
     SectionListComponent,
-    EnrollmentComponent
+    EnrollmentComponent,
+    WidgetListComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
