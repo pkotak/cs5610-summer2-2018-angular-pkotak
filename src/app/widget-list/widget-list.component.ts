@@ -6,7 +6,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./widget-list.component.css']
 })
 export class WidgetListComponent implements OnInit {
-  @Input() widget: any
+  @Input() widget: any;
   constructor() { }
 
   ngOnInit() {
