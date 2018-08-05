@@ -3,13 +3,13 @@
     <div class="col-sm-9">
       <h3 class="ml-lg-3">White Board</h3>
     </div>
-    <div class="col-sm-3 row">
-      <a class="mt-2 float-right" routerLink="/home">Home</a>
+    <div class="col-sm-3">
       <button (click)="logout()"
               *ngIf="user.firstName !== undefined"
-              class="btn btn-warning ml-4">
+              class="btn btn-warning ml-4 float-right">
         Logout
       </button>
+      <a class="mt-2 float-right" routerLink="/home">Home</a>
     </div>
   </div>
 <h2>Sections</h2>
