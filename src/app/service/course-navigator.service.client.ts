@@ -2,6 +2,11 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class CourseNavigatorServiceClient {
+  findCourseById(courseId) {
+    return fetch('http://localhost:8080/api/course/' + courseId)
+      .then(response => response.json());
+  }
+
   findAllCourses() {
     return fetch('http://localhost:8080/api/course')
       .then(response => response.json());
