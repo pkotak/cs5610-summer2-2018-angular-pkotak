@@ -25,22 +25,23 @@
     </ul>
   </div>
   <div class="col-sm-8">
-    <ul class="list-group">
-      <li class="list-group-item">
-        <input [(ngModel)]="section.name"
-               class="form-control">
-      </li>
-      <li *ngFor="let section of sections"
-          class="list-group-item">
-        <h3>{{section.name}}</h3>
-        <h5>Seats: {{section.seats}}</h5>
-        <button class="btn btn-success float-right"
-                *ngIf="section.seats > 0"
-                (click)="enroll(section)">
-          Enroll
-        </button>
-      </li>
-    </ul>
+    <div class="row">
+      <div *ngFor="let section of sections" class="col-3 ml-2">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{section.name}}</h5>
+            <a *ngIf="section.seats > 0"
+               (click)="enroll(section)"
+               class="btn btn-primary btn-block">
+              Enroll
+            </a>
+          </div>
+          <div class="card-footer text-muted">
+            Seats Remaining : {{section.seats}}/{{section.maxSeats}}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </div>
