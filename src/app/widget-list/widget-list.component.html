@@ -1,0 +1,27 @@
+<div [ngSwitch]="widget.type">
+  <div *ngSwitchCase="'HEADING'">
+    <div [ngSwitch]="widget.size">
+      <h1 *ngSwitchCase="'1'">{{widget.text}}</h1>
+      <h2 *ngSwitchCase="'2'">{{widget.text}}</h2>
+      <h3 *ngSwitchCase="'3'">{{widget.text}}</h3>
+    </div>
+  </div>
+  <div *ngSwitchCase="'LINK'">
+    <a href="{{widget.href}}">{{widget.text}}</a>
+  </div>
+  <div *ngSwitchCase="'LIST'">
+    <h1>{{widget.name}}</h1>
+    <ul class="list-group">
+      <li class="list-group-item"
+          *ngFor="let item of widget.listItems.split('\n')">
+        {{item}}
+      </li>
+    </ul>
+  </div>
+  <div *ngSwitchCase="'PARAGRAPH'">
+    <p>{{widget.text}}</p>
+  </div>
+  <div *ngSwitchCase="'IMAGE'">
+    <img src="{{widget.src}}" width="300" height="400">
+  </div>
+</div>

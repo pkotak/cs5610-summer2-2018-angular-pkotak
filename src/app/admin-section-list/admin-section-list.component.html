@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>
+          Section Name
+        </th>
+        <th>
+          Seats
+        </th>
+        <th>
+          Maximum Seats
+        </th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <input [(ngModel)]="section.name"
+                 placeholder="Section Name"
+                 class="form-control">
+        </td>
+        <td>
+          <input [(ngModel)]="section.seats"
+                 placeholder="Seats available"
+                 class="form-control">
+        </td>
+        <td>
+          <input [(ngModel)]="section.maxSeats"
+                 placeholder="Max Seats"
+                 class="form-control">
+        </td>
+        <td>
+          <span class="float-right">
+            <button (click)="createSection()" class="btn btn-primary mr-2">
+              <i class="fa fa-plus"></i>
+            </button>
+            <button (click)="updateSection()" class="btn btn-success">
+              <i class="fa fa-save"></i>
+            </button>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ul class="list-group">
+    <li *ngFor="let section of sections" class="list-group-item">
+      Name: {{section.name}} Available Seats: {{section.seats}} Maximum Seats: {{section.maxSeats}}
+      <button (click)="setSection(section.name, section.seats, section.maxSeats, section._id)"
+              class="float-right btn bg-transparent">
+        <i class="fa fa-pencil"></i>
+      </button>&nbsp; &nbsp;
+      <button (click)= "deleteSection(section._id)" class="float-right btn bg-transparent">
+        <i class="fa fa-times"></i>
+      </button>
+    </li>
+  </ul>
+</div>

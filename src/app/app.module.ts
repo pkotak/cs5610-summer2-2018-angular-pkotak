@@ -14,9 +14,9 @@ import { WhiteBoardComponent } from './white-board/white-board.component';
 import { CourseGridComponent } from './course-grid/course-grid.component';
 import { SectionListComponent } from './section-list/section-list.component';
 import {SectionServiceClient} from './service/section.service.client';
-import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { WidgetListComponent } from './widget-list/widget-list.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminSectionListComponent } from './admin-section-list/admin-section-list.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +28,9 @@ import { AdminComponent } from './admin/admin.component';
     WhiteBoardComponent,
     CourseGridComponent,
     SectionListComponent,
-    EnrollmentComponent,
     WidgetListComponent,
-    AdminComponent
+    AdminComponent,
+    AdminSectionListComponent
   ],
   imports: [
     BrowserModule,
