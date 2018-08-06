@@ -18,7 +18,13 @@ export class ProfileComponent implements OnInit {
   enrollments = [];
   toEnroll = false;
   update(user: User) {
-    console.log(user);
+    this.service
+      .updateUser(user)
+      .then(() => {
+        this.service
+          .profile()
+          .then(updatedUser => this.user = updatedUser);
+      });
   }
 
   logout() {
