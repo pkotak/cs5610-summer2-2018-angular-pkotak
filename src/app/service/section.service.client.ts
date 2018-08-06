@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-
+const SECTION_API_URL = 'https://cs5610-summer2-2018-nodejs.herokuapp.com';
 @Injectable()
 export class SectionServiceClient {
   createSection = section =>
-    fetch('http://localhost:3000/api/course/' + section.courseId + '/section', {
+    fetch(SECTION_API_URL + '/api/course/' + section.courseId + '/section', {
       method: 'post',
       headers: {
         'content-type': 'application/json'
@@ -14,25 +14,25 @@ export class SectionServiceClient {
       .then(response => response.json())
 
   findAllSections = () =>
-    fetch('http://localhost:3000/api/section')
+    fetch(SECTION_API_URL + '/api/section')
       .then(response => response.json())
 
   findSectionsForCourse = courseId =>
-    fetch('http://localhost:3000/api/course/' + courseId + '/section')
+    fetch(SECTION_API_URL + '/api/course/' + courseId + '/section')
       .then(response => response.json())
 
   findSectionsForStudent = () =>
-    fetch('http://localhost:3000/api/student/section', {
+    fetch(SECTION_API_URL + '/api/student/section', {
       credentials: 'include'
     })
       .then(response => response.json())
 
   findSectionById = sectionId =>
-    fetch('http://localhost:3000/api/section/' + sectionId)
+    fetch(SECTION_API_URL + '/api/section/' + sectionId)
       .then(section => section.json())
 
   updateSection = section =>
-    fetch('http://localhost:3000/api/section/' + section._id, {
+    fetch(SECTION_API_URL + '/api/section/' + section._id, {
       method: 'put',
       body: JSON.stringify(section),
       headers: {
@@ -42,12 +42,12 @@ export class SectionServiceClient {
       .then(updatedSection => updatedSection.json())
 
   deleteSection = sectionId =>
-    fetch('http://localhost:3000/api/section/' + sectionId, {
+    fetch(SECTION_API_URL + '/api/section/' + sectionId, {
       method: 'delete'
     }).then(response => response.text())
 
   enrollStudentInSection = (sectionId, toEnroll) =>
-    fetch('http://localhost:3000/api/section/' + sectionId + '/enrollment', {
+    fetch(SECTION_API_URL + '/api/section/' + sectionId + '/enrollment', {
       method: 'post',
       body: JSON.stringify({toEnroll: toEnroll}),
       headers: {

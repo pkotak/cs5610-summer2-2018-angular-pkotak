@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-
+const SECTION_API_URL = 'https://cs5610-summer2-2018-nodejs.herokuapp.com';
 @Injectable()
 export class UserServiceClient {
 
   findUserById(userId) {
-      return fetch('http://localhost:3000/api/user/' + userId)
+      return fetch(SECTION_API_URL + '/api/user/' + userId)
         .then(response => response.json());
   }
 
@@ -13,7 +13,7 @@ export class UserServiceClient {
       username: username,
       password: password
     };
-    return fetch('http://localhost:3000/api/login', {
+    return fetch(SECTION_API_URL + '/api/login', {
       method: 'post',
       credentials: 'include',
       headers: {
@@ -24,7 +24,7 @@ export class UserServiceClient {
   }
 
   logout() {
-    return fetch('http://localhost:3000/api/logout',
+    return fetch(SECTION_API_URL + '/api/logout',
       {
       method: 'post',
         credentials: 'include'
@@ -32,7 +32,7 @@ export class UserServiceClient {
   }
 
   profile() {
-    return fetch('http://localhost:3000/api/profile',
+    return fetch(SECTION_API_URL + '/api/profile',
       {
       credentials: 'include'
     }).then(response => response.json());
@@ -43,7 +43,7 @@ export class UserServiceClient {
       username: username,
       password: password
     };
-    return fetch('http://localhost:3000/api/register', {
+    return fetch(SECTION_API_URL + '/api/register', {
       body: JSON.stringify(user),
       credentials: 'include',
       method: 'post',
