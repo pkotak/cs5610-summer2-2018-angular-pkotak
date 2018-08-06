@@ -52,4 +52,15 @@ export class UserServiceClient {
       }
     });
   }
+
+  updateUser(user) {
+    return fetch(SECTION_API_URL + '/api/profile', {
+      body: JSON.stringify(user),
+      credentials: 'include',
+      method: 'put',
+      headers: {
+        'content-type': 'application/json'
+      }
+    });
+  }
 }
