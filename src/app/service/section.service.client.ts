@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 const SECTION_API_URL = 'https://cs5610-summer2-2018-nodejs.herokuapp.com';
+// const SECTION_API_URL = 'http://localhost:3000';
 @Injectable()
 export class SectionServiceClient {
   createSection = section =>
@@ -18,7 +19,9 @@ export class SectionServiceClient {
       .then(response => response.json())
 
   findSectionsForCourse = courseId =>
-    fetch(SECTION_API_URL + '/api/course/' + courseId + '/section')
+    fetch(SECTION_API_URL + '/api/course/' + courseId + '/section', {
+      credentials: 'include'
+    })
       .then(response => response.json())
 
   findSectionsForStudent = () =>

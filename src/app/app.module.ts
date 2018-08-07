@@ -17,6 +17,9 @@ import {SectionServiceClient} from './service/section.service.client';
 import { WidgetListComponent } from './widget-list/widget-list.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminSectionListComponent } from './admin-section-list/admin-section-list.component';
+import { ModuleListComponent } from './module-list/module-list.component';
+import { LessonTabComponent } from './lesson-tab/lesson-tab.component';
+import { TopicPillComponent } from './topic-pill/topic-pill.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { AdminSectionListComponent } from './admin-section-list/admin-section-li
     SectionListComponent,
     WidgetListComponent,
     AdminComponent,
-    AdminSectionListComponent
+    AdminSectionListComponent,
+    ModuleListComponent,
+    LessonTabComponent,
+    TopicPillComponent
   ],
   imports: [
     BrowserModule,

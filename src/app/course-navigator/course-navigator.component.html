@@ -1,56 +1,10 @@
 <div class="container-fluid">
   <div class="row bg-danger">
-    <div class="col-3">
-      <h3 class="ml-lg-3">{{course.name}}</h3>
+    <div>
+      <h3 class="ml-lg-3">{{course.title}}</h3>
     </div>
-    <div class="col-6">
-      <ul class="nav nav-tabs">
-        <li class="nav-item"
-            *ngFor="let lesson of lessons"
-            routerLink="/course/{{course.courseId}}/module/{{selectedModule}}/lesson/{{lesson.id}}">
-          <a class="nav-link"
-             [ngClass]="{'active': lesson.id === selectedLesson}">
-            {{lesson.title}}
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="col-3" *ngIf="user.firstName !== undefined">
-      <a class="float-right mt-2" routerLink="/profile">Profile</a>
-    </div>
-    <div class="col-3" *ngIf="user.firstName === undefined">
-      <a class="float-right mt-2" routerLink="/login">Login</a>
-      <a class="float-right mr-4 mt-2" routerLink="/register">Register</a>
-    </div>
+    <app-lesson-tab></app-lesson-tab>
   </div>
-  <div class="row mt-3">
-    <div class="col-3">
-      <ul class="list-group">
-        <li class="list-group-item">
-          <h3>Modules</h3>
-        </li>
-        <li *ngFor="let module of modules"
-            class="list-group-item"
-            routerLink="/course/{{course.courseId}}/module/{{module.id}}"
-            [ngClass]="{'active': module.id === selectedModule}">
-          {{module.title}}
-        </li>
-      </ul>
-    </div>
-    <div class="col-8">
-      <ul class="nav nav-pills">
-        <li class="nav-item"
-            *ngFor="let topic of topics"
-            [ngClass]="{'active': topic.id === selectedTopic}"
-            routerLink="/course/{{course.courseId}}/module/{{selectedModule}}/lesson/{{selectedLesson}}/topic/{{topic.id}}">
-            <a class="nav-link">{{topic.title}}</a>
-        </li>
-      </ul>
-      <div class="container-fluid">
-          <div *ngFor="let widget of widgets">
-            <app-widget-list [widget]="widget"></app-widget-list>
-          </div>
-      </div>
-    </div>
-  </div>
+  <a routerLink="/home">Back</a>
+  <app-module-list></app-module-list>
 </div>
