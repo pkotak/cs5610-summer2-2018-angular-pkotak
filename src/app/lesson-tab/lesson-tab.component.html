@@ -1,0 +1,12 @@
+<div class="ml-lg-5">
+  <ul class="nav nav-tabs">
+    <li class="nav-item"
+        *ngFor="let lesson of lessons"
+        routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lesson.id}}">
+      <a class="nav-link"
+         [ngClass]="{'active': lesson.id == lessonId}">
+        {{lesson.title}}
+      </a>
+    </li>
+  </ul>
+</div>
