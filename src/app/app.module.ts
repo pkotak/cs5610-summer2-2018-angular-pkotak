@@ -20,6 +20,9 @@ import { AdminSectionListComponent } from './admin-section-list/admin-section-li
 import { ModuleListComponent } from './module-list/module-list.component';
 import { LessonTabComponent } from './lesson-tab/lesson-tab.component';
 import { TopicPillComponent } from './topic-pill/topic-pill.component';
+import { QuizListComponent } from './quiz-list/quiz-list.component';
+import { QuizTakerComponent } from './quiz-taker/quiz-taker.component';
+import {QuizServiceClient} from './service/quiz.service.client';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,9 @@ import { TopicPillComponent } from './topic-pill/topic-pill.component';
     AdminSectionListComponent,
     ModuleListComponent,
     LessonTabComponent,
-    TopicPillComponent
+    TopicPillComponent,
+    QuizListComponent,
+    QuizTakerComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,8 @@ import { TopicPillComponent } from './topic-pill/topic-pill.component';
   providers: [
     CourseNavigatorServiceClient,
     UserServiceClient,
-    SectionServiceClient
+    SectionServiceClient,
+    QuizServiceClient
   ],
   bootstrap: [AppComponent]
 })

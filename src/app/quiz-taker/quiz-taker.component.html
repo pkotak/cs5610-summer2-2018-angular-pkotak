@@ -1,0 +1,19 @@
+<h2>Quiz Taker</h2>
+
+<h3>{{quiz.title}}</h3>
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let question of quiz.questions">
+    <h4>
+      {{question.title}}
+      <span class="float-right">{{question.points}}</span>
+    </h4>
+    <p>{{question.description}}</p>
+    <div [ngSwitch]="question.questionType">
+      <div *ngSwitchCase="'TRUE_FALSE'"><h3>True False</h3></div>
+      <div *ngSwitchCase="'FILL_BLANKS'"><h3>Fill in the blanks</h3></div>
+      <div *ngSwitchCase="'ESSAY'"><h3>Essay</h3></div>
+      <div *ngSwitchCase="'CHOICE'"><h3>Choice</h3></div>
+    </div>
+  </li>
+</ul>

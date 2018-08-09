@@ -1,0 +1,7 @@
+<ul class="list-group">
+  <li class="list-group-item"
+      *ngFor="let quiz of quizzes">
+  {{quiz.title}}
+    <a class="btn btn-primary float-right" href="/quiz/{{quiz._id}}">Take</a>
+  </li>
+</ul>

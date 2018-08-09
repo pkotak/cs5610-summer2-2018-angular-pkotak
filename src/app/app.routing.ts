@@ -6,6 +6,8 @@ import {ProfileComponent} from './profile/profile.component';
 import {WhiteBoardComponent} from './white-board/white-board.component';
 import {SectionListComponent} from './section-list/section-list.component';
 import {AdminComponent} from './admin/admin.component';
+import {QuizListComponent} from './quiz-list/quiz-list.component';
+import {QuizTakerComponent} from './quiz-taker/quiz-taker.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -14,6 +16,8 @@ const appRoutes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'admin', component: AdminComponent},
+  {path: 'quiz', component: QuizListComponent},
+  {path: 'quiz/:quizId', component: QuizTakerComponent},
   {path: 'course/:courseId', component: CourseNavigatorComponent},
   {path: 'course/:courseId/section', component: SectionListComponent},
   {path: 'course/:courseId/sections', component: AdminComponent},
