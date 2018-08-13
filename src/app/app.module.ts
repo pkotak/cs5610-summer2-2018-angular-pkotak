@@ -23,6 +23,11 @@ import { TopicPillComponent } from './topic-pill/topic-pill.component';
 import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { QuizTakerComponent } from './quiz-taker/quiz-taker.component';
 import {QuizServiceClient} from './service/quiz.service.client';
+import { TrueFalseComponent } from './true-false/true-false.component';
+import { FillBlanksComponent } from './fill-blanks/fill-blanks.component';
+import { MultipleChoiceComponent } from './multiple-choice/multiple-choice.component';
+import { EssayComponent } from './essay/essay.component';
+import { SubmissionListComponent } from './submission-list/submission-list.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +46,12 @@ import {QuizServiceClient} from './service/quiz.service.client';
     LessonTabComponent,
     TopicPillComponent,
     QuizListComponent,
-    QuizTakerComponent
+    QuizTakerComponent,
+    TrueFalseComponent,
+    FillBlanksComponent,
+    MultipleChoiceComponent,
+    EssayComponent,
+    SubmissionListComponent
   ],
   imports: [
     BrowserModule,

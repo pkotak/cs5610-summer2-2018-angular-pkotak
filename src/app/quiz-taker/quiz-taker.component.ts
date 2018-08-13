@@ -14,6 +14,11 @@ export class QuizTakerComponent implements OnInit {
   quizId = '';
   quiz = {title: '', questions: []};
 
+  submitQuiz = quiz =>
+    this.service
+      .submitQuiz(quiz)
+      .then(submission => console.log(submission))
+
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => this.quizId = params['quizId']);
     this.service.findQuizById(this.quizId)

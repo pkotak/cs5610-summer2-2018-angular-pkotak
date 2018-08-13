@@ -1,19 +1,46 @@
-<h2>Quiz Taker</h2>
-
-<h3>{{quiz.title}}</h3>
-
-<ul class="list-group">
-  <li class="list-group-item" *ngFor="let question of quiz.questions">
-    <h4>
-      {{question.title}}
-      <span class="float-right">{{question.points}}</span>
-    </h4>
-    <p>{{question.description}}</p>
-    <div [ngSwitch]="question.questionType">
-      <div *ngSwitchCase="'TRUE_FALSE'"><h3>True False</h3></div>
-      <div *ngSwitchCase="'FILL_BLANKS'"><h3>Fill in the blanks</h3></div>
-      <div *ngSwitchCase="'ESSAY'"><h3>Essay</h3></div>
-      <div *ngSwitchCase="'CHOICE'"><h3>Choice</h3></div>
+<div class="container-fluid">
+  <div class="row bg-danger mb-4">
+    <div class="col-sm-9">
+      <h3 class="ml-lg-3">White Board</h3>
     </div>
-  </li>
-</ul>
+    <div class="col-sm-3 row">
+      <a routerLink="/home" class="mt-2">Home</a> &nbsp;&nbsp; <a routerLink="/profile" class="mt-2 ml-3">Profile</a>
+    </div>
+  </div>
+  <h2>Quiz Taker</h2>
+
+  <h3>
+    {{quiz.title}}
+  </h3>
+
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let question of quiz.questions">
+      <h4>
+        {{question.title}}
+        <span class="float-right">{{question.points}}</span>
+      </h4>
+      <p>{{question.description}}</p>
+      <div [ngSwitch]="question.questionType">
+        <app-true-false [question]="question"
+                        *ngSwitchCase="'TRUE_FALSE'">
+        </app-true-false>
+        <app-fill-blanks [question]="question"
+                         *ngSwitchCase="'FILL_BLANKS'">
+        </app-fill-blanks>
+        <app-essay [question]="question"
+                   *ngSwitchCase="'ESSAY'">
+        </app-essay>
+        <app-multiple-choice [question]="question"
+                             *ngSwitchCase="'CHOICE'">
+        </app-multiple-choice>
+      </div>
+    </li>
+  </ul>
+  <div class="mt-2">
+    <button class="btn btn-primary float-right"
+            (click)="submitQuiz(quiz)">Submit</button>
+
+    <a class="btn btn-danger float-right mr-3" href="/quiz">Cancel</a>
+  </div>
+
+</div>

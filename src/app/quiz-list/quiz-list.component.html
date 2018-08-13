@@ -1,7 +1,19 @@
-<ul class="list-group">
-  <li class="list-group-item"
-      *ngFor="let quiz of quizzes">
-  {{quiz.title}}
-    <a class="btn btn-primary float-right" href="/quiz/{{quiz._id}}">Take</a>
-  </li>
-</ul>
+<div class="container-fluid">
+  <div class="row bg-danger mb-4">
+    <div class="col-sm-9">
+      <h3 class="ml-lg-3">White Board</h3>
+    </div>
+    <div class="col-sm-3 row">
+      <a routerLink="/home" class="mt-2">Home</a> &nbsp;&nbsp; <a routerLink="/profile" class="mt-2 ml-3">Profile</a>
+    </div>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item"
+        *ngFor="let quiz of quizzes">
+      {{quiz.title}}
+      <a class="btn btn-success float-right" href="/quiz/{{quiz._id}}">Take</a>
+      <a class="btn btn-primary float-right mr-3" href="/quiz/{{quiz._id}}/submissions">Submissions</a>
+    </li>
+  </ul>
+</div>
+
