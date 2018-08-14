@@ -31,10 +31,23 @@ export class SubmissionListComponent implements OnInit {
   }
 
   createAnswerMap = (answer, question) => {
-    let points;
     switch (question.questionType) {
       case 'FILL_BLANKS':
-        return {userAnswer: answer.fillBlanksAnswer, correctAnswer: '', points: 0};
+        const keys = Object.keys(answer.fillBlanksAnswer);
+        let userAnsArr = [];
+        let correctAnsArr = [];
+        keys.map(key => {
+          userAnsArr.push(answer.fillBlanksAnswer[key]);
+        });
+        question.blanks.map(blank => {
+          if (blank.indexOf('*') === 0) {
+            correctAnsArr.push(blank.split('=')[1]);
+          }
+        });
+        return {
+          userAnswer: userAnsArr,
+          correctAnswer: correctAnsArr,
+          points: (userAnsArr.length === correctAnsArr.length) ? question.points : 0};
       case 'CHOICE':
         let correctAns = '';
         question.choices.map(choice => {
@@ -43,16 +56,20 @@ export class SubmissionListComponent implements OnInit {
             return;
           }
         });
-        points = (answer.multipleChoiceAnswer === question.choices[answer.multipleChoiceAnswer].correct) ? question.points : 0;
-        return {userAnswer: question.choices[answer.multipleChoiceAnswer].text, correctAnswer: correctAns, points: points};
+        return {
+          userAnswer: question.choices[answer.multipleChoiceAnswer].text,
+          correctAnswer: correctAns,
+          points: (question.choices[answer.multipleChoiceAnswer].text === correctAns) ? question.points : 0};
       case 'ESSAY':
-        return {userAnswer: answer.essayAnswer, correctAnswer: 'Subject to check from grader', points: 0};
+        return {
+          userAnswer: answer.essayAnswer,
+          correctAnswer: 'Subject to check from grader',
+          points: 0};
       case 'TRUE_FALSE':
-        points = (answer.trueFalseAnswer === question.isTrue) ? question.points : 0;
         const ans = {
           userAnswer: answer.trueFalseAnswer,
           correctAnswer: question.isTrue,
-          points: points
+          points: (answer.trueFalseAnswer === question.isTrue) ? question.points : 0
         };
         return ans;
     }
