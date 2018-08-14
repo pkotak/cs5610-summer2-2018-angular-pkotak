@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-// const SECTION_API_URL = 'https://cs5610-summer2-2018-nodejs.herokuapp.com';
-const SECTION_API_URL = 'http://localhost:3000';
+const SECTION_API_URL = 'https://cs5610-summer2-2018-nodejs.herokuapp.com';
+// const SECTION_API_URL = 'http://localhost:3000';
 @Injectable()
 export class UserServiceClient {
 
