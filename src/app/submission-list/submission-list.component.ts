@@ -63,8 +63,8 @@ export class SubmissionListComponent implements OnInit {
       case 'ESSAY':
         return {
           userAnswer: answer.essayAnswer,
-          correctAnswer: 'Subject to check from grader',
-          points: 0};
+          correctAnswer: question.answer,
+          points: (question.answer === answer.essayAnswer) ? question.points : 0};
       case 'TRUE_FALSE':
         const ans = {
           userAnswer: answer.trueFalseAnswer,
