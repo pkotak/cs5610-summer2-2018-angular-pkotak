@@ -1,3 +1,7 @@
+# Heroku URL 
+
+https://cs5610-summer2-2018-angular.herokuapp.com/home
+
 # WebdevSummer2AngularPkotak
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
